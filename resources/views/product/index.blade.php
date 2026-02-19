@@ -1,23 +1,5 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>tusMiniAmigos 🌸</title>
-    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Pacifico&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="{{ asset('css/estilos.css') }}">
-</head>
-<body>
-
-    {{-- Decoraciones florales de fondo --}}
-    <div class="deco-flores deco-tl">🌸🌷🌸</div>
-    <div class="deco-flores deco-tr">🌷🌸🌷</div>
-    <div class="deco-flores deco-bl">🌸🌷🌸</div>
-    <div class="deco-flores deco-br">🌷🌸🌷</div>
-
-    {{-- TOPBAR --}}
-@include('layout.topbar')
-
+@extends ('layout.app')
+@section('content')
     {{-- HERO --}}
     <div class="hero">
         <h1>🌸 Amiguitos de Crochet 🌸</h1>
@@ -104,7 +86,4 @@
         </div>
 
     </section>
-    {{-- FOOTER --}}
-@include('layout.footer')
-</body>
-</html>
+@endsection
