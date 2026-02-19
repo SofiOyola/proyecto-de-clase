@@ -66,6 +66,34 @@ body {
     to   { transform: rotate(360deg); }
 }
 
+/* ─── FOOTER ─── */
+.footer {
+    background-color: var(--rosa-topbar);
+    text-align: center;
+    padding: 8px 20px;
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: #c2185b;
+    letter-spacing: 0.5px;
+    border-bottom: 1px solid rgba(244, 143, 177, 0.3);
+}
+
+.footer span {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.footer .flower {
+    font-size: 0.85rem;
+    animation: spin-slow 6s linear infinite;
+}
+
+@keyframes spin-slow {
+    from { transform: rotate(0deg); }
+    to   { transform: rotate(360deg); }
+}
+
 /* ─── NAVBAR ─── */
 .navbar {
     background: linear-gradient(135deg, #f48fb1 0%, #f06292 50%, #ec407a 100%);

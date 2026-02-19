@@ -10,21 +10,7 @@
 <body>
 
     {{-- TOPBAR --}}
-    <div class="topbar">
-        <span>
-            <span class="flower">✿</span>
-            Hecho a mano con amor
-            <span class="flower">✿</span>
-            Envíos a todo el país
-            <span class="flower">✿</span>
-        </span>
-    </div>
-
-    {{-- NAVBAR --}}
-    <nav class="navbar">
-        <a href="{{ url('/') }}" class="navbar-brand">🧸 tusMiniAmigos</a>
-        <a href="tel:3162273844" class="navbar-contact">📱 316 227 3844</a>
-    </nav>
+@include('layout.topbar')
 
     {{-- ENCABEZADO --}}
     <div class="section-header">
@@ -121,6 +107,8 @@
             </div>
         </div>
     </div>
+    {{-- FOOTER --}}
+@include('layout.footer')
 
 </body>
 </html>
