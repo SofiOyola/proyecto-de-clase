@@ -16,7 +16,11 @@
                 {{-- Producto 1: Conejo --}}
                 <div class="card">
                     <div class="card-img-wrapper">
-                        <img src="{{ asset('img/conejoCrochet.jpg') }}" alt="Conejo Crochet">
+                        @if($product->image)
+                            <img src="{{ asset('storage/'.$product->image) }}" alt="Producto">
+                        @else
+                            <img src="{{ asset('img/cerditoCrochet.jpg') }}" alt="ProductoBase">
+                        @endif
                     </div>
                     <div class="card-nombre">{{$product->name }}</div> 
                     <div class="card-descripcion">

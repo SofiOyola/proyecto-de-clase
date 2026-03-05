@@ -33,12 +33,18 @@ class ProductController extends Controller
         $newProduct->price = $request->get('precio');
         $newProduct->category_id = $request->get('category');
 
+        if($request->hasFile('imagen')){
+            //recuperamos la ruta
+            $ruta = $request->file('imagen')->store('images','public');
+            $newProduct->image = $ruta;
+        }
+
         $newProduct->save();
 
         //Retorne y me lleve al index
         return redirect()->route('product.index');        
     }
-//ORM productos formulario básico
+
     public function show($producto){
         return view('product.show');
     }
