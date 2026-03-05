@@ -16,6 +16,8 @@
             <div class="corner-deco corner-bl">🌷🌸</div>
             <div class="corner-deco corner-br">🌸🌷</div>
 
+            <form action="{{route('product.store')}}" method="POST" enctype="multipart/form-data">
+                @csrf
                 {{-- ID Producto --}}
                 <div class="form-group">
                     <label class="form-label" for="id_producto">
@@ -68,16 +70,15 @@
                     <p id="file-name-display">📎 Archivo seleccionado: <span id="file-name"></span></p>
                 </div>
 
-                {{-- Estado --}}
+                {{-- Categoria --}}
                 <div class="form-group">
                     <label class="form-label" for="estado">
-                        <span class="icon">🔄</span> Estado
+                        <span class="icon">🔄</span> Categoria
                     </label>
-                    <select id="estado" name="estado" class="form-control" required>
-                        <option value="" disabled selected>Selecciona el estado…</option>
-                        <option value="disponible">✅ Disponible</option>
-                        <option value="agotado">❌ Agotado</option>
-                        <option value="proximamente">🕐 Próximamente</option>
+                    <select id="estado" name="category" class="form-control" required>
+                        @foreach ($categoryList as $category)
+                            <option value="{{$category->id}}">{{$category->name}}</option> 
+                        @endforeach
                     </select>
                 </div>
 
