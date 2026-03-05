@@ -12,70 +12,20 @@
 
         <div class="productos-scroll">
 
-            {{-- Producto 1: Conejo --}}
-            <div class="card">
-                <div class="card-img-wrapper">
-                    <img src="{{ asset('img/conejoCrochet.jpg') }}" alt="Conejo Crochet">
+            @foreach ($misProductos as $product)
+                {{-- Producto 1: Conejo --}}
+                <div class="card">
+                    <div class="card-img-wrapper">
+                        <img src="{{ asset('img/conejoCrochet.jpg') }}" alt="Conejo Crochet">
+                    </div>
+                    <div class="card-nombre">{{$product->name }}</div> 
+                    <div class="card-descripcion">
+                        {{$product->description }}
+                    </div>
+                    <div class="card-precio">{{$product->price}}</div>
+                    <a href="#" class="btn-comprar">🛍️ Comprar ahora</a>
                 </div>
-                <div class="card-nombre">🐰 Conejo Crochet</div>
-                <div class="card-descripcion">
-                    Conejito blanco tejido a mano, con overol azul y una tierna zanahoria en su bolsillo. Un compañero dulce y encantador.
-                </div>
-                <div class="card-precio">$50.000</div>
-                <a href="#" class="btn-comprar">🛍️ Comprar ahora</a>
-            </div>
-
-            {{-- Producto 2: Totoro --}}
-            <div class="card">
-                <div class="card-img-wrapper">
-                    <img src="{{ asset('img/totoroCrochet.jpg') }}" alt="Totoro Crochet">
-                </div>
-                <div class="card-nombre">🌫️ Totoro Crochet</div>
-                <div class="card-descripcion">
-                    Adorable Totoro gris tejido en crochet, inspirado en la magia de "Mi vecino Totoro". Suaves detalles que enamoran.
-                </div>
-                <div class="card-precio">$45.000</div>
-                <a href="#" class="btn-comprar">🛍️ Comprar ahora</a>
-            </div>
-
-            {{-- Producto 3: Cerdito --}}
-            <div class="card">
-                <div class="card-img-wrapper">
-                    <img src="{{ asset('img/cerditoCrochet.jpg') }}" alt="Cerdito Crochet">
-                </div>
-                <div class="card-nombre">🐷 Cerdito Crochet</div>
-                <div class="card-descripcion">
-                    Dulce cerdito tejido con un encantador gorrito de sapito. Perfecto para regalar ternura en forma de peluche.
-                </div>
-                <div class="card-precio">$30.000</div>
-                <a href="#" class="btn-comprar">🛍️ Comprar ahora</a>
-            </div>
-
-            {{-- Producto 4: Gato --}}
-            <div class="card">
-                <div class="card-img-wrapper">
-                    <img src="{{ asset('img/gatoCrochet.jpg') }}" alt="Gato Crochet">
-                </div>
-                <div class="card-nombre">🐱 Gato Crochet</div>
-                <div class="card-descripcion">
-                    Gatito blanco y negro tejido con delicadeza, lleno de personalidad y suavidad. Ideal para amantes de los mininos.
-                </div>
-                <div class="card-precio">$52.000</div>
-                <a href="#" class="btn-comprar">🛍️ Comprar ahora</a>
-            </div>
-
-            {{-- Producto 5: Snoopy --}}
-            <div class="card">
-                <div class="card-img-wrapper">
-                    <img src="{{ asset('img/snoopyCrochet.jpg') }}" alt="Snoopy Crochet">
-                </div>
-                <div class="card-nombre">🎀 Snoopy Crochet</div>
-                <div class="card-descripcion">
-                    Snoopy tejido en crochet con delicados moñitos rosados. Un clásico reinventado con ternura y mucho amor.
-                </div>
-                <div class="card-precio">$48.000</div>
-                <a href="#" class="btn-comprar">🛍️ Comprar ahora</a>
-            </div>
+            @endforeach 
 
         </div>
 
