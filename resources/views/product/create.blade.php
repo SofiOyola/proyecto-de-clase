@@ -23,7 +23,7 @@
                     <label class="form-label" for="id_producto">
                         <span class="icon">🆔</span> ID Producto
                     </label>
-                    <input type="text" id="id_producto" name="id_producto" class="form-control" placeholder="Ej: 001" required>
+                    <input type="text" id="id_producto" name="id_producto" class="form-control" placeholder="Ej: 001" >
                     <p class="form-hint">Identificador único del producto</p>
                 </div>
 
@@ -32,7 +32,12 @@
                     <label class="form-label" for="nombre">
                         <span class="icon">🧵</span> Nombre
                     </label>
-                    <input type="text" id="nombre" name="nombre" class="form-control" placeholder="Ej: Conejo Crochet" required>
+                    <input type="text" id="nombre" name="nombre" class="form-control" placeholder="Ej: Conejo Crochet">
+                    @error('nombre')
+                    <span style="color: red"; font-size: 14px>
+                        {{$message}}
+                    </span>
+                    @enderror
                 </div>
 
                 {{-- Precio --}}
@@ -40,8 +45,13 @@
                     <label class="form-label" for="precio">
                         <span class="icon">💰</span> Precio
                     </label>
-                    <input type="number" id="precio" name="precio" class="form-control" placeholder="Ej: 50000" min="0" required>
+                    <input type="number" id="precio" name="precio" class="form-control" placeholder="Ej: 50000" min="0" >
                     <p class="form-hint">Ingresa el valor sin puntos ni comas</p>
+                    @error('precio')
+                    <span style="color: red"; font-size: 14px>
+                        {{$message}}
+                    </span>
+                    @enderror
                 </div>
 
                 {{-- Descripción --}}
@@ -49,7 +59,12 @@
                     <label class="form-label" for="descripcion">
                         <span class="icon">📝</span> Descripción
                     </label>
-                    <textarea id="descripcion" name="descripcion" class="form-control" placeholder="Describe brevemente el producto…" rows="4" required></textarea>
+                    <textarea id="descripcion" name="descripcion" class="form-control" placeholder="Describe brevemente el producto…" rows="4" ></textarea>
+                    @error('descripcion')
+                    <span style="color: red"; font-size: 14px>
+                        {{$message}}
+                    </span>
+                    @enderror
                 </div>
 
                 {{-- Imagen --}}
@@ -68,6 +83,11 @@
                         </label>
                     </div>
                     <p id="file-name-display">📎 Archivo seleccionado: <span id="file-name"></span></p>
+                    @error('imagen')
+                    <span style="color: red"; font-size: 14px>
+                        {{$message}}
+                    </span>
+                    @enderror
                 </div>
 
                 {{-- Categoria --}}
@@ -75,11 +95,16 @@
                     <label class="form-label" for="estado">
                         <span class="icon">🔄</span> Categoria
                     </label>
-                    <select id="estado" name="category" class="form-control" required>
+                    <select id="estado" name="category" class="form-control">
                         @foreach ($categoryList as $category)
                             <option value="{{$category->id}}">{{$category->name}}</option> 
                         @endforeach
                     </select>
+                    @error('categoria')
+                    <span style="color: red"; font-size: 14px>
+                        {{$message}}
+                    </span>
+                    @enderror
                 </div>
 
                 <hr class="form-divider">

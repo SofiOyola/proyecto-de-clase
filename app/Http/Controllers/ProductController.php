@@ -25,6 +25,19 @@ class ProductController extends Controller
     }
 
     public function store(Request $request){
+
+        //VALIDACIONES
+        $request-> validate([
+            //Por cada item coloco una regla
+            'nombre' => 'required|min:2|max:250', //Aquí le digo que nombre debe de ser requerido, que 
+                                                //Lo mínimo digitado es 2 y máximo 250
+            'precio' => 'required|numeric', //Aquí le digo que es requerido y numérido
+            'descripcion' => 'required', 
+            'imagen' => 'required|image', 
+            'categoria' => 'required|exists: categories, id' //Aquí valido pa que también exista en la tabla
+        ]);
+
+
         //dd($request->all());
 
         $newProduct = new Product();
