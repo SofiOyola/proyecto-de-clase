@@ -10,32 +10,29 @@
     {{-- CARD PRINCIPAL --}}
     <div class="detail-wrapper">
         <div class="detail-card">
-
-            {{-- Columna imagen --}}
-            <div class="detail-image-col">
-                <div class="badge-estado">✅ Disponible</div>
-                <div class="product-image-frame">
-                    <img src="{{ asset('img/conejoCrochet.jpg') }}" alt="Conejo Crochet">
+                {{-- Columna imagen --}}
+                <div class="detail-image-col">
+                    <div class="badge-estado">✅ Disponible</div>
+                    <div class="product-image-frame">
+                            @if($product->image)
+                                <img src="{{ asset('storage/' . $product->image) }}" alt="Producto">
+                            @else
+                                <img src="{{ asset('img/cerditoCrochet.jpg') }}" alt="ProductoBase">
+                            @endif
+                    </div>
                 </div>
-            </div>
-
-            {{-- Columna info --}}
-            <div class="detail-info-col">
-                <span class="product-tag">🧵 Crochet Artesanal</span>
-                <h2 class="product-name">🐰 Conejo Crochet</h2>
-                <div class="product-price">$50.000</div>
-                <hr class="product-divider">
-                <p class="product-description">
-                    Conejito blanco tejido a mano, con overol azul y una tierna zanahoria en su bolsillo.
-                    Un compañero dulce y encantador para cualquier rincón especial. Ideal como regalo o
-                    como acompañante fiel del día a día. 🐰✨
-                </p>
-                <div class="detail-actions">
-                    <a href="#" class="btn-comprar">🌸 Comprar ahora</a>
-                    <a href="{{ url('/product') }}" class="btn-volver">← Volver al catálogo</a>
+                {{-- Columna info --}}
+                <div class="detail-info-col">
+                    <span class="product-tag">🧵 Crochet Artesanal</span>
+                    <h2 class="product-name">{{ $product->name }}</h2>
+                    <div class="product-price">{{ $product->price }}</div>
+                    <hr class="product-divider">
+                    <p class="product-description">{{ $product->description }}</p>
+                    <div class="detail-actions">
+                        <a href="#" class="btn-comprar">🛒 Añadir al carrito</a>
+                        <a href="{{ url('/product') }}" class="btn-volver">← Volver al catálogo</a>
+                    </div>
                 </div>
-            </div>
-
         </div>
     </div>
 

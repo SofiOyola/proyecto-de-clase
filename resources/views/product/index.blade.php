@@ -25,7 +25,9 @@
                     <div class="card-nombre">{{ $product->name }}</div>
                     <div class="card-descripcion">{{ $product->description }}</div>
                     <div class="card-precio">{{ $product->price }}</div>
-                    <a href="#" class="btn-comprar">🛍️ Comprar ahora</a>
+                    <a href="{{ route('product.show', $product) }}" class="btn-comprar">
+                        🛍️ Comprar ahora
+                    </a>
                     <form action="{{ route('product.destroy', $product) }}" method="POST" class="form-eliminar">
                         @method('delete')
                         @csrf
