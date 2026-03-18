@@ -1,50 +1,47 @@
-@extends ('layout.app')
+@extends('layout.app')
 @section('content')
+ 
     {{-- HERO --}}
     <div class="hero">
         <h1>🌸 Amiguitos de Crochet 🌸</h1>
         <p>Tejidos a mano con amor, uno por uno, solo para ti 💕</p>
     </div>
-
+ 
     {{-- SECCIÓN PRODUCTOS --}}
     <section class="productos-section">
         <div class="productos-titulo">🧁 Nuestros Mini Amigos</div>
-
+ 
         <div class="productos-scroll">
-
+ 
             @foreach ($misProductos as $product)
-                {{-- Producto 1: Conejo --}}
                 <div class="card">
                     <div class="card-img-wrapper">
                         @if($product->image)
-                            <img src="{{ asset('storage/'.$product->image) }}" alt="Producto">
+                            <img src="{{ asset('storage/' . $product->image) }}" alt="Producto">
                         @else
                             <img src="{{ asset('img/cerditoCrochet.jpg') }}" alt="ProductoBase">
                         @endif
                     </div>
-                    <div class="card-nombre">{{$product->name }}</div> 
-                    <div class="card-descripcion">
-                        {{$product->description }}
-                    </div>
-                    <div class="card-precio">{{$product->price}}</div>
+                    <div class="card-nombre">{{ $product->name }}</div>
+                    <div class="card-descripcion">{{ $product->description }}</div>
+                    <div class="card-precio">{{ $product->price }}</div>
                     <a href="#" class="btn-comprar">🛍️ Comprar ahora</a>
-                    <form action="{{route('product.destroy', $product)}}" method="POST" class="form-eliminar">
+                    <form action="{{ route('product.destroy', $product) }}" method="POST" class="form-eliminar">
                         @method('delete')
                         @csrf
-                        <button type="submit" class="btn-eliminar">
-                            🗑️ Eliminar
-                        </button>
+                        <button type="submit" class="btn-eliminar">🗑️ Eliminar</button>
                     </form>
                 </div>
-            @endforeach 
-
+            @endforeach
+ 
         </div>
-
+ 
         <div class="btn-agregar-wrapper">
             <a href="{{ url('/product/create') }}" class="btn-agregar">
                 ✿ Agregar Producto
             </a>
         </div>
-
+ 
     </section>
+ 
 @endsection
