@@ -60,7 +60,28 @@ body {
     font-size: 0.85rem;
     animation: spin-slow 6s linear infinite;
 }
+.form-eliminar{
+    margin-top: 10px;
+}
 
+.btn-eliminar{
+    width: 100%;
+    padding: 12px;
+    background: #ff6b6b;
+    color: white;
+    border: none;
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.25s ease;
+}
+
+.btn-eliminar:hover{
+    background: #e63946;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+}
 @keyframes spin-slow {
     from { transform: rotate(0deg); }
     to   { transform: rotate(360deg); }

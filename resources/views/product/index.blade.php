@@ -28,6 +28,13 @@
                     </div>
                     <div class="card-precio">{{$product->price}}</div>
                     <a href="#" class="btn-comprar">🛍️ Comprar ahora</a>
+                    <form action="{{route('product.destroy', $product)}}" method="POST" class="form-eliminar">
+                        @method('delete')
+                        @csrf
+                        <button type="submit" class="btn-eliminar">
+                            🗑️ Eliminar
+                        </button>
+                    </form>
                 </div>
             @endforeach 
 
