@@ -12,7 +12,7 @@
         <div class="detail-card">
                 {{-- Columna imagen --}}
                 <div class="detail-image-col">
-                    <div class="badge-estado">✅ Disponible</div>
+                    <div class="badge-estado">{{ $product->category->description }}</div>
                     <div class="product-image-frame">
                             @if($product->image)
                                 <img src="{{ asset('storage/' . $product->image) }}" alt="Producto">
