@@ -42,6 +42,10 @@
             <a href="{{ url('/product/create') }}" class="btn-agregar">
                 ✿ Agregar Producto
             </a>
+
+            <a href="{{ route('cart.index') }}" class="btn-carrito">
+                🛒 Carrito de compras
+            </a>
         </div>
  
     </section>

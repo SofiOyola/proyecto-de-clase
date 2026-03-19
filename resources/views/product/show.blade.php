@@ -7,6 +7,11 @@
         <p>Conoce cada detalle de este tejido especial 💕</p>
     </div>
 
+    @if(session('success'))
+        <div class="alert-success-cart">
+            {{ session('success') }}
+        </div>
+    @endif
     {{-- CARD PRINCIPAL --}}
     <div class="detail-wrapper">
         <div class="detail-card">
@@ -29,7 +34,11 @@
                     <hr class="product-divider">
                     <p class="product-description">{{ $product->description }}</p>
                     <div class="detail-actions">
-                        <a href="#" class="btn-comprar">🛒 Añadir al carrito</a>
+                        <form action="{{ route('cart.add', $product) }}" method="POST">
+                            @csrf
+                            <button type="submit" class="btn-comprar">🛒 Añadir al carrito</button>
+                        </form>
+                        
                         @if(request('from') == 'admin')
                             <a href="{{ route('admin.productos') }}" class="btn-volver">← Volver al panel</a>
                         @else
