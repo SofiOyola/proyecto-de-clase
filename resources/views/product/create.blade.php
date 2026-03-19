@@ -17,6 +17,9 @@
             <div class="corner-deco corner-br">🌸🌷</div>
 
             <form action="{{route('product.store')}}" method="POST" enctype="multipart/form-data">
+                @if(request('from') == 'admin')
+                    <input type="hidden" name="from" value="admin">
+                @endif
                 @csrf
                 {{-- ID Producto --}}
                 <div class="form-group">
@@ -112,7 +115,11 @@
                 {{-- Botones --}}
                 <div class="form-actions">
                     <button type="submit" class="btn-guardar">🌸 Guardar MiniAmigo</button>
-                    <a href="{{ url('/product') }}" class="btn-cancelar">✕ Cancelar</a>
+                    @if(request('from') == 'admin')
+                        <a href="{{ route('admin.productos') }}" class="btn-cancelar">✕ Cancelar</a>
+                    @else
+                        <a href="{{ route('product.index') }}" class="btn-cancelar">✕ Cancelar</a>
+                    @endif
                 </div>
 
             </form>

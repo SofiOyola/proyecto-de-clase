@@ -34,7 +34,7 @@ class ProductController extends Controller
             'precio' => 'required|numeric', //Aquí le digo que es requerido y numérido
             'descripcion' => 'required', 
             'imagen' => 'required|image', 
-            'categoria' => 'required|exists: categories, id' //Aquí valido pa que también exista en la tabla
+            'category' => 'required|exists:categories, id' //Aquí valido pa que también exista en la tabla
         ]);
 
 
@@ -54,8 +54,13 @@ class ProductController extends Controller
 
         $newProduct->save();
 
-        //Retorne y me lleve al index
-        return redirect()->route('product.index');        
+        if ($request->get('from') === 'admin') {
+            return redirect()->route('admin.productos')
+                ->with('success', 'Producto creado correctamente.');
+        }
+
+        return redirect()->route('product.index')
+            ->with('success', 'Producto creado correctamente.');      
     }
 
     public function show(Product $product)
@@ -63,8 +68,25 @@ class ProductController extends Controller
         return view('product.show', compact('product'));
     }
 
-    public function destroy(Product $product){
+    public function destroy(Request $request, Product $product)
+    {
         $product->delete();
-        return redirect()->route('product.index');
+
+        if ($request->get('from') === 'admin') {
+            return redirect()->route('admin.productos')
+                ->with('success', 'Producto eliminado correctamente.');
+        }
+
+        return redirect()->route('product.index')
+            ->with('success', 'Producto eliminado correctamente.');
+    }
+
+    public function adminIndex()
+    {
+        $productList = Product::orderBy('id', 'desc')->get();
+
+        return view('admin.productos.index', [
+            'misProductos' => $productList
+        ]);
     }
 }

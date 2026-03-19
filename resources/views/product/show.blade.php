@@ -30,7 +30,11 @@
                     <p class="product-description">{{ $product->description }}</p>
                     <div class="detail-actions">
                         <a href="#" class="btn-comprar">🛒 Añadir al carrito</a>
-                        <a href="{{ url('/product') }}" class="btn-volver">← Volver al catálogo</a>
+                        @if(request('from') == 'admin')
+                            <a href="{{ route('admin.productos') }}" class="btn-volver">← Volver al panel</a>
+                        @else
+                            <a href="{{ route('product.index') }}" class="btn-volver">← Volver al catálogo</a>
+                        @endif
                     </div>
                 </div>
         </div>
